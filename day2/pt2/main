@@ -1,0 +1,27 @@
+#!/bin/python
+
+
+with open("input.txt", "r") as file:
+    data = file.readlines()
+    newData = []
+    for num in data:
+        newData.append(num.strip().split(" "))
+
+
+depth = 0
+position = 0
+aim = 0
+
+for command in newData:
+    if command[0] == "forward":
+        position += int(command[1])
+        depth += aim * int(command[1])
+    elif command[0] == "down":
+        aim += int(command[1])
+    elif command[0] == "up":
+        aim -= int(command[1])
+
+
+
+
+print(depth*position)

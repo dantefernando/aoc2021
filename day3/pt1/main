@@ -1,0 +1,47 @@
+#!/bin/python
+
+
+with open("input.txt", "r") as file:
+    data = file.readlines()
+    newData = []
+    for num in data:
+        newData.append(num.strip())
+
+
+gamma = ""
+epsilon = ""
+
+for i in range(0, len(newData[0])):
+    count0 = 0
+    count1 = 0
+    for binary in newData:
+        if binary[i] == "0":
+            count0 += 1
+        else:
+            count1 += 1
+
+    if count0 > count1:
+        commonbit = "0"
+        uncommonbit = "1"
+    else:
+        commonbit = "1"
+        uncommonbit = "0"
+
+    gamma += commonbit
+    epsilon += uncommonbit
+
+
+decgamma = int(gamma,2)
+decepsilion = int(epsilon,2)
+
+
+print(decgamma*decepsilion)
+
+
+
+
+
+
+
+
+
